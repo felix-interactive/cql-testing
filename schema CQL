@@ -1,0 +1,64 @@
+CREATE TABLE users(
+  user_id uuid PRIMARY KEY
+  email text,
+  name text,
+  password text,
+  salt text,
+  profile_pic text
+)
+
+CREATE TABLE teams(
+  team_id uuid PRIMARY KEY,
+  name text
+)
+
+CREATE TABLE belongs(
+  user_id uuid,
+  team_id uuid,
+  type text,
+  status text,
+  PRIMARY KEY (user_id, team_id)
+)
+
+CREATE TABLE applications(
+  app_id uuid,
+  user_id uuid,
+  team_id uuid,
+  name text,
+  description text
+)
+
+CREATE TABLE applications_by_teams(
+  team_id uuid,
+  app_id uuid,
+  app_name uuid,
+  PRIMARY KEY (team_id, app_id)
+)
+
+CREATE TABLE applications_by_users(
+  user_id uuid,
+  app_id uuid
+  app_name
+  PRIMARY KEY (team_id, app_id)
+)
+
+CREATE TABLE pages(
+  pages_id uuid,
+  app_id uuid,
+  name text
+  PRIMARY KEY (pages_id, app_id)
+)
+
+CREATE TABLE widgets(
+  widget_id uuid PRIMARY KEY
+  app_id uuid,
+  page_id uuid,
+  plugin_id uuid
+)
+
+CREATE TABLE plugins(
+  plugin_id uuid PRIMARY KEY,
+  user_name text,
+  version_num text,
+  file_path text
+)
