@@ -32,11 +32,7 @@ class CqlAssister
     @client.execute(cqlCode, :one)
   end
 
-  def output_results(cqlResults)
-    cqlResults.each do |row|
-      puts row
-    end
-  end
+
 
 
 
@@ -45,6 +41,7 @@ private
   ## Read from file
   def read_each_line_file(filename)
     ## Open the file to read each line and output it
+    ## Ends line when semicolon (;) appears then yield
       finaloutput = ""
       File.open(filename, "r").each_line do |line|
         ## If an error occurs from dropping it, rescue and put it out to terminal

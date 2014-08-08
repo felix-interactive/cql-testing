@@ -1,8 +1,19 @@
 
 Dir["lib/*.rb"].each {|file| require_relative file }	## Require mandatory library files from folder lib.
 
+def output_results(cqlResults)
+  cqlResults.each do |row|
+    puts row
+  end
+end
 @assister = CqlAssister.new
 
+statement = @assister.execute("INSERT INTO application_by_teams (team_id, app_id, app_name) VALUES (blobAsUuid(now()), now(), 'my app')")
+statement = @assister.execute("INSERT INTO application_by_teams (team_id, app_id, app_name) VALUES (blobAsUuid(now()), now(), 'my app')")
+statement = @assister.execute("INSERT INTO application_by_teams (team_id, app_id, app_name) VALUES (blobAsUuid(now()), now(), 'my app')")
+statement = @assister.execute("INSERT INTO application_by_teams (team_id, app_id, app_name) VALUES (blobAsUuid(now()), now(), 'my app')")
+statement = @assister.execute("INSERT INTO application_by_teams (team_id, app_id, app_name) VALUES (blobAsUuid(now()), now(), 'my app')")
+output_results(@assister.execute("SELECT * FROM application_by_teams GROUP BY team_id"))
 
 =begin
 ## localhost:9160

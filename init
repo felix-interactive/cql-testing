@@ -28,14 +28,14 @@ CREATE TABLE applications(
   description text
 );
 
-CREATE TABLE applications_by_teams(
+CREATE TABLE application_by_teams(
   team_id uuid,
   app_id uuid,
   app_name text,
   PRIMARY KEY (team_id, app_id)
 );
 
-CREATE TABLE applications_by_users(
+CREATE TABLE application_by_users(
   user_id uuid,
   app_id uuid,
   app_name text,
